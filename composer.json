@@ -1,0 +1,17 @@
+{
+  "name": "vendor_name/simple-flash-message",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "nick",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+  },
+  "autoload": {
+    "psr-4": { "Prepel\\SimpleFlashMessage\\": "src/" }
+  }
+}
