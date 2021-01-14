@@ -1,12 +1,12 @@
 {
-  "name": "vendor_name/simple-flash-message",
+  "name": "prepel/simple-flash-message",
   "description": "description",
   "minimum-stability": "stable",
   "license": "proprietary",
   "authors": [
     {
-      "name": "nick",
-      "email": "email@example.com"
+      "name": "Nick Slabbekoorn",
+      "email": "info@nickslabbekoorn.nl"
     }
   ],
   "require": {
