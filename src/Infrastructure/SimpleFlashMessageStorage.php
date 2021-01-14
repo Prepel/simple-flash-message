@@ -15,12 +15,30 @@ class SimpleFlashMessageStorage
         $this->session = &$session;
     }
 
-    public function addMessageToSession(SimpleFlashMessage $simpleFlashMessage): void
+    public function addMessage(SimpleFlashMessage $simpleFlashMessage): void
     {
-        var_dump('adding SFM', $simpleFlashMessage);
+        $this->session[self::SESSION_NAME][$simpleFlashMessage->getName()] = $simpleFlashMessage->getMessage();
     }
 
-    public function getMessageFromSession(string $name): SimpleFlashMessage
+    public function hasMessage(string $name): ?SimpleFlashMessage
     {
+        if(isset($this->session[self::SESSION_NAME][$name])){
+            $message = $this->session[self::SESSION_NAME][$name];
+
+            return new SimpleFlashMessage($name, $message);
+        }
+
+        return null;
+    }
+
+    public function getMessage(string $name): ?SimpleFlashMessage
+    {
+        $simpleFlashMessage = $this->hasMessage($name);
+        
+        if($simpleFlashMessage instanceof SimpleFlashMessage){
+            unset($this->session[self::SESSION_NAME][$name]);
+        }
+        
+        return $simpleFlashMessage;
     }
 }

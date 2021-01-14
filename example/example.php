@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once '../vendor/autoload.php';
 
@@ -28,5 +29,10 @@ $service->addMessage($simpleFlashMessageWithContext);
 // Shorthand contextual message
 $service->addMessage(new \Prepel\SimpleFlashMessage\Domain\SimpleFlashMessage('shortContextual', ['foo' => 'bar', 'text' => 'short']));
 
+// Peek message (won't remove it from sessiong)
+$simpleFlashMessage = $service->hasMessage('test');
 
-// TODO example on how to get or peek them
+// get message (will remove it from session)
+$simpleFlashMessage = $service->getMessage('test');
+$simpleFlashMessage->getTextMessage();
+

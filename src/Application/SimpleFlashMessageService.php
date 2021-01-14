@@ -17,15 +17,17 @@ class SimpleFlashMessageService
 
     public function addMessage(SimpleFlashMessage $simpleFlashMessage): void
     {
-        $this->storage->addMessageToSession($simpleFlashMessage);
+        $this->storage->addMessage($simpleFlashMessage);
     }
 
     public function hasMessage(string $name): SimpleFlashMessage
     {
+        return $this->storage->hasMessage($name);
     }
 
-    public function getMessage(string $name): SimpleFlashMessage
+    public function getMessage(string $name): ?SimpleFlashMessage
     {
+        return $this->storage->getMessage($name);
     }
 
     public function getMessages(): SimpleFlashMessageCollection

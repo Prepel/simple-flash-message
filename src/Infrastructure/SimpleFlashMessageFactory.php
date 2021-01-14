@@ -8,11 +8,11 @@ class SimpleFlashMessageFactory
 {
     public function newSimpleFlashMessageService(): SimpleFlashMessageService
     {
-        // TODO remove debug
-        $session = $_SESSION ?? [];
+        // TODO assert SESSION
+        var_dump('s', $_SESSION);
 
         return new SimpleFlashMessageService(
-            new SimpleFlashMessageStorage($session)
+            new SimpleFlashMessageStorage($_SESSION)
         );
     }
 }
