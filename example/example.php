@@ -36,3 +36,7 @@ $simpleFlashMessage = $service->hasMessage('test');
 $simpleFlashMessage = $service->getMessage('test');
 $simpleFlashMessage->getTextMessage();
 
+// Get all messages (will remove all of them from session)
+$messages = $service->getMessages();
+
+

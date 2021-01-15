@@ -3,6 +3,7 @@
 namespace Prepel\SimpleFlashMessage\Infrastructure;
 
 use Prepel\SimpleFlashMessage\Domain\SimpleFlashMessage;
+use Prepel\SimpleFlashMessage\Domain\SimpleFlashMessageCollection;
 
 class SimpleFlashMessageStorage
 {
@@ -40,5 +41,18 @@ class SimpleFlashMessageStorage
         }
         
         return $simpleFlashMessage;
+    }
+
+    public function getMessages(): SimpleFlashMessageCollection
+    {
+        $simpleFlashMessageCollection = new SimpleFlashMessageCollection();
+
+        $messages = $this->session[self::SESSION_NAME];
+        foreach($messages as $name => $message){
+            $simpleFlashMessageCollection->add(new SimpleFlashMessage($name, $message));
+            unset($this->session[self::SESSION_NAME][$name]);
+        }
+
+        return $simpleFlashMessageCollection;
     }
 }

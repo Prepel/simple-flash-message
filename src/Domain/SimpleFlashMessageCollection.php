@@ -3,6 +3,8 @@
 namespace Prepel\SimpleFlashMessage\Domain;
 
 
-class SimpleFlashMessageCollection
+use Doctrine\Common\Collections\ArrayCollection;
+
+class SimpleFlashMessageCollection extends ArrayCollection
 {
 }

@@ -32,5 +32,6 @@ class SimpleFlashMessageService
 
     public function getMessages(): SimpleFlashMessageCollection
     {
+        return $this->storage->getMessages();
     }
 }

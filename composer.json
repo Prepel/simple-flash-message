@@ -10,7 +10,8 @@
     }
   ],
   "require": {
-    "webmozart/assert": "^1.9"
+    "webmozart/assert": "^1.9",
+    "doctrine/collections": "^1.6"
   },
   "autoload": {
     "psr-4": { "Prepel\\SimpleFlashMessage\\": "src/" }
