@@ -10,6 +10,7 @@
     }
   ],
   "require": {
+    "webmozart/assert": "^1.9"
   },
   "autoload": {
     "psr-4": { "Prepel\\SimpleFlashMessage\\": "src/" }

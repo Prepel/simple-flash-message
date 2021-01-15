@@ -3,6 +3,8 @@
 namespace Prepel\SimpleFlashMessage\Domain;
 
 
+use Webmozart\Assert\Assert;
+
 class SimpleFlashMessage
 {
     private string $name;
@@ -34,7 +36,8 @@ class SimpleFlashMessage
 
     public function getTextMessage(): string
     {
-        // TODO assert has key text
+        Assert::keyExists($this->message, 'text');
+
         return $this->message['text'];
     }
 
