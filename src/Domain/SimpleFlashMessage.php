@@ -8,15 +8,12 @@ use Webmozart\Assert\Assert;
 class SimpleFlashMessage
 {
     private string $name;
-    private array  $message;
+    private ?array  $message;
 
     public function __construct(string $name, ?array $content = null)
     {
         $this->name = $name;
-
-        if ($content !== null) {
-            $this->message = $content;
-        }
+        $this->message = $content;
     }
 
     public function getName(): string
@@ -24,7 +21,7 @@ class SimpleFlashMessage
         return $this->name;
     }
 
-    public function getMessage(): array
+    public function getMessage(): ?array
     {
         return $this->message;
     }
